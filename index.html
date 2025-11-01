@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fill Us with Your Love - Evangelism Translations</title>
+    <title>Worshipper Media</title>
     <link rel="icon" type="image/png" href="worship medialogo.jpg">
     <meta name="description" content="Spreading God's love through translated songs in multiple languages. Subscribe to our YouTube channel for evangelism music.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
@@ -671,26 +671,6 @@
             color: var(--color-accent);
         }
 
-        /* Back to Top Button */
-        #backToTop {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            background: var(--color-primary);
-            color: var(--color-white);
-            padding: 15px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
-        }
-
-        #backToTop:hover {
-            transform: scale(1.1);
-            opacity: 0.9;
-        }
-
         /* Mobile Menu */
         .nav-mobile {
             display: none;
@@ -805,8 +785,8 @@
             Your browser does not support the video tag.
         </video>
         <div class="hero-content">
-            <h1 class="animate-slide-left">Worshiper Media</h1>
-            <p class="animate-slide-right">Spreading God's Message of Love Worldwide Through Song</p>
+            <h1 class="animate-slide-left">Worshipper Media</h1>
+            <p class="animate-slide-right">Spreading God's Message of Love Through Song and Crist-Centered Literature</p>
             <button class="cta-button animate-pulse" onclick="subscribe()" aria-label="Subscribe to YouTube channel">Subscribe on YouTube</button>
         </div>
     </header>
@@ -844,40 +824,7 @@
     <!-- Featured Content Section -->
     <section id="featured">
         <h2 class="animate-fade">Featured Translations</h2>
-        <div class="video-grid">
-            <div class="video-item animate-zoom" role="button" tabindex="0" onclick="showModal('English Version')" onkeypress="if(event.key === 'Enter') showModal('English Version')">
-                <iframe src="https://www.youtube.com/embed/ENGLISH_VIDEO_ID" title="English Translation" loading="lazy"></iframe>
-                <div class="video-caption">English - Original</div>
-            </div>
-            <div class="video-item animate-zoom" role="button" tabindex="0" onclick="showModal('Spanish Version')" onkeypress="if(event.key === 'Enter') showModal('Spanish Version')">
-                <iframe src="https://www.youtube.com/embed/SPANISH_VIDEO_ID" title="Spanish Translation" loading="lazy"></iframe>
-                <div class="video-caption">Spanish</div>
-            </div>
-            <div class="video-item animate-zoom" role="button" tabindex="0" onclick="showModal('Hindi Version')" onkeypress="if(event.key === 'Enter') showModal('Hindi Version')">
-                <iframe src="https://www.youtube.com/embed/HINDI_VIDEO_ID" title="Hindi Translation" loading="lazy"></iframe>
-                <div class="video-caption">Hindi</div>
-            </div>
-            <div class="video-item animate-zoom" role="button" tabindex="0" onclick="showModal('French Version')" onkeypress="if(event.key === 'Enter') showModal('French Version')">
-                <iframe src="https://www.youtube.com/embed/FRENCH_VIDEO_ID" title="French Translation" loading="lazy"></iframe>
-                <div class="video-caption">French</div>
-            </div>
-            <div class="video-item animate-zoom" role="button" tabindex="0" onclick="showModal('Mandarin Version')" onkeypress="if(event.key === 'Enter') showModal('Mandarin Version')">
-                <iframe src="https://www.youtube.com/embed/MANDARIN_VIDEO_ID" title="Mandarin Translation" loading="lazy"></iframe>
-                <div class="video-caption">Mandarin</div>
-            </div>
-            <div class="video-item animate-zoom" role="button" tabindex="0" onclick="showModal('Arabic Version')" onkeypress="if(event.key === 'Enter') showModal('Arabic Version')">
-                <iframe src="https://www.youtube.com/embed/ARABIC_VIDEO_ID" title="Arabic Translation" loading="lazy"></iframe>
-                <div class="video-caption">Arabic</div>
-            </div>
-            <div class="video-item animate-zoom" role="button" tabindex="0" onclick="showModal('German Version')" onkeypress="if(event.key === 'Enter') showModal('German Version')">
-                <iframe src="https://www.youtube.com/embed/GERMAN_VIDEO_ID" title="German Translation" loading="lazy"></iframe>
-                <div class="video-caption">German</div>
-            </div>
-            <div class="video-item animate-zoom" role="button" tabindex="0" onclick="showModal('Portuguese Version')" onkeypress="if(event.key === 'Enter') showModal('Portuguese Version')">
-                <iframe src="https://www.youtube.com/embed/PORTUGUESE_VIDEO_ID" title="Portuguese Translation" loading="lazy"></iframe>
-                <div class="video-caption">Portuguese</div>
-            </div>
-        </div>
+        <div class="video-grid"></div>
     </section>
 
     <!-- Community Section -->
@@ -942,13 +889,68 @@
         </div>
     </div>
 
-    <!-- Back to Top Button -->
-    <div id="backToTop" role="button" tabindex="0" onclick="scrollToTop()" onkeypress="if(event.key === 'Enter') scrollToTop()" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-
     <!-- JavaScript -->
     <script>
+
+        const translations = [
+    { language: "Fill Us | Nigeria", url: "https://www.youtube.com/watch?v=rQi_jgz8g74" },
+    { language: "Fill Us | Greek", url: "https://www.youtube.com/watch?v=FEOkF92QWFQ&t=38s" },
+    { language: "Fill Us | Egypt", url: "https://www.youtube.com/watch?v=EdDWqKMEs_I" },
+    { language: "Fill Us | Macedonian", url: "https://www.youtube.com/watch?v=1fq3VrZA8JI&pp=0gcJCQMKAYcqIYzv"},
+    { language: "Fill Us | Urdu", url: "https://www.youtube.com/watch?v=c9_w1vX0_38" },
+    { language: "Fill Us | Slovenian", url: "https://www.youtube.com/watch?v=SKa9KyOrkJE" },
+    { language: "Fill Us | Tamil", url: "https://www.youtube.com/watch?v=Hfxx9t9Oyc0" },
+  ];
+
+  // --- extract ID and time ---
+  function getVideoId(url) {
+    const u = new URL(url);
+    return u.searchParams.get("v");
+  }
+
+  function getStartSeconds(url) {
+    const u = new URL(url);
+    const t = u.searchParams.get("t");
+    if (!t) return 0;
+    if (t.endsWith("s")) return parseInt(t);
+    return parseInt(t) || 0;
+  }
+
+  // --- dynamically add iframes ---
+  const grid = document.querySelector(".video-grid");
+  grid.innerHTML = "";
+
+  translations.forEach(item => {
+    const id = getVideoId(item.url);
+    const start = getStartSeconds(item.url);
+
+    // ✅ Use YouTube embed format with ?start=seconds
+    const embedUrl = `https://www.youtube.com/embed/${id}?start=${start}&autoplay=0&enablejsapi=1`;
+
+    const div = document.createElement("div");
+    div.className = "video-item animate-zoom";
+    div.setAttribute("role", "button");
+    div.setAttribute("tabindex", "0");
+    div.setAttribute("onclick", `showModal('${item.language} Version')`);
+    div.setAttribute("onkeypress", `if(event.key === 'Enter') showModal('${item.language} Version')`);
+
+    const iframe = document.createElement("iframe");
+    iframe.src = embedUrl;
+    iframe.title = `${item.language} Translation`;
+    iframe.loading = "lazy";
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+
+    const caption = document.createElement("div");
+    caption.className = "video-caption";
+    caption.textContent = item.language;
+
+    div.appendChild(iframe);
+    div.appendChild(caption);
+    grid.appendChild(div);
+  });
+
+
         // Navigation Toggle
             const navToggle = document.querySelector('.nav-toggle');
             const navMobile = document.querySelector('.nav-mobile');
@@ -1079,8 +1081,6 @@
 </body>
 
 </html>
-
-
 
 
 
