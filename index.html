@@ -892,74 +892,57 @@
     <!-- JavaScript -->
     <script>
 
-        const translations = [
-{ language: "Project 1: Gabrielle", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmRAJCHuGJ5n1G-5k5qJ2cI-" },
-{ language: "Project 2: A World In Pain", url: "https://youtube.com/playlist?list=PLZ-Bkhyr_AmRZ_4edcdieHKNdmNu4NQ3J" },
-{ language: "Project 3: Bloodwashed", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmS2Q9gsVbfdvay_MHXn7fp8" },
-{ language: "Project 4: Polly Esther", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmTp7QmJrgwbPWoZBQZbeXOd" },
-{ language: "Project 5: Bed of Roses", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmS2Q9gsVbfdvay_MHXn7fp8" },
-{ language: "Project 6: Madness", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmTM9VBgY8g772harg0d_zET" }
-{ language: "Project 7: A Touch of Heaven", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmSHEvT5JLanNnLcGsAzp-LY" },
-{ language: "Project 8: The Path", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmRfqomtP-JItoOK-IxSWWVl" }
-{ language: "Fishers of Men", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmTGUprtW7BZvXPK2Ri3ji2w" }
-{ language: "Worshipper Music", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmRUhAnZEmDbHqEpdEFYqtQ5" }
-{ language: "Commissioned Work", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmQO0xQIKyX9fFjRVhNDElGH" }
-{ language: "Where Is God", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmQMukDG9-XaE9uRLQHKpaqg" },
-{ language: "Unconditional Love of God", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmTwDs-qg3PJeKaR3peL5xFF" },
-{ language: "Why We Don’t Bless", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmRlI_E2_BmzCBbc1MG9mWlK" },
-{ language: "The Colt", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmT1w1BaPPCvXY01-goubimr" },
-{ language: "Fisher of Men", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmTGUprtW7BZvXPK2Ri3ji2w" },
-{ language: "Narrated", url: "https://www.youtube.com/playlist?list=PLZ-Bkhyr_AmS9bm07k8sYOoU7Bo9LYMt8" },
+       const translations = [
+  { language: "Project 1: Gabrielle", url: "PLZ-Bkhyr_AmRAJCHuGJ5n1G-5k5qJ2cI-" },
+  { language: "Project 2: A World In Pain", url: "PLZ-Bkhyr_AmRZ_4edcdieHKNdmNu4NQ3J" },
+  { language: "Project 3: Bloodwashed", url: "PLZ-Bkhyr_AmS2Q9gsVbfdvay_MHXn7fp8" },
+  { language: "Project 4: Polly Esther", url: "PLZ-Bkhyr_AmTp7QmJrgwbPWoZBQZbeXOd" },
+  { language: "Project 5: Bed of Roses", url: "PLZ-Bkhyr_AmS2Q9gsVbfdvay_MHXn7fp8" },
+  { language: "Project 6: Madness", url: "PLZ-Bkhyr_AmTM9VBgY8g772harg0d_zET" },
+  { language: "Project 7: A Touch of Heaven", url: "PLZ-Bkhyr_AmSHEvT5JLanNnLcGsAzp-LY" },
+  { language: "Project 8: The Path", url: "PLZ-Bkhyr_AmRfqomtP-JItoOK-IxSWWVl" },
+  { language: "Fishers of Men", url: "PLZ-Bkhyr_AmTGUprtW7BZvXPK2Ri3ji2w" },
+  { language: "Worshipper Music", url: "PLZ-Bkhyr_AmRUhAnZEmDbHqEpdEFYqtQ5" },
+  { language: "Commissioned Work", url: "PLZ-Bkhyr_AmQO0xQIKyX9fFjRVhNDElGH" },
+  { language: "Where Is God", url: "PLZ-Bkhyr_AmQMukDG9-XaE9uRLQHKpaqg" },
+  { language: "Unconditional Love of God", url: "PLZ-Bkhyr_AmTwDs-qg3PJeKaR3peL5xFF" },
+  { language: "Why We Don’t Bless", url: "PLZ-Bkhyr_AmRlI_E2_BmzCBbc1MG9mWlK" },
+  { language: "The Colt", url: "PLZ-Bkhyr_AmT1w1BaPPCvXY01-goubimr" },
+  { language: "Fisher of Men", url: "PLZ-Bkhyr_AmTGUprtW7BZvXPK2Ri3ji2w" },
+  { language: "Narrated", url: "PLZ-Bkhyr_AmS9bm07k8sYOoU7Bo9LYMt8" }
+];
 
-  ];
+// --- dynamically add iframes ---
+const grid = document.querySelector(".video-grid");
+grid.innerHTML = "";
 
-  // --- extract ID and time ---
-  function getVideoId(url) {
-    const u = new URL(url);
-    return u.searchParams.get("v");
-  }
+translations.forEach(item => {
+  // For playlists, use embed URL for a playlist
+  const embedUrl = `https://www.youtube.com/embed/videoseries?list=${item.url}&autoplay=0&enablejsapi=1`;
 
-  function getStartSeconds(url) {
-    const u = new URL(url);
-    const t = u.searchParams.get("t");
-    if (!t) return 0;
-    if (t.endsWith("s")) return parseInt(t);
-    return parseInt(t) || 0;
-  }
+  const div = document.createElement("div");
+  div.className = "video-item animate-zoom";
+  div.setAttribute("role", "button");
+  div.setAttribute("tabindex", "0");
+  div.setAttribute("onclick", `showModal('${item.language} Version')`);
+  div.setAttribute("onkeypress", `if(event.key === 'Enter') showModal('${item.language} Version')`);
 
-  // --- dynamically add iframes ---
-  const grid = document.querySelector(".video-grid");
-  grid.innerHTML = "";
+  const iframe = document.createElement("iframe");
+  iframe.src = embedUrl;
+  iframe.title = `${item.language} Playlist`;
+  iframe.loading = "lazy";
+  iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+  iframe.allowFullscreen = true;
 
-  translations.forEach(item => {
-    const id = getVideoId(item.url);
-    const start = getStartSeconds(item.url);
+  const caption = document.createElement("div");
+  caption.className = "video-caption";
+  caption.textContent = item.language;
 
-    // ✅ Use YouTube embed format with ?start=seconds
-    const embedUrl = `https://www.youtube.com/embed/${id}?start=${start}&autoplay=0&enablejsapi=1`;
+  div.appendChild(iframe);
+  div.appendChild(caption);
+  grid.appendChild(div);
+});
 
-    const div = document.createElement("div");
-    div.className = "video-item animate-zoom";
-    div.setAttribute("role", "button");
-    div.setAttribute("tabindex", "0");
-    div.setAttribute("onclick", `showModal('${item.language} Version')`);
-    div.setAttribute("onkeypress", `if(event.key === 'Enter') showModal('${item.language} Version')`);
-
-    const iframe = document.createElement("iframe");
-    iframe.src = embedUrl;
-    iframe.title = `${item.language} Translation`;
-    iframe.loading = "lazy";
-    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    iframe.allowFullscreen = true;
-
-    const caption = document.createElement("div");
-    caption.className = "video-caption";
-    caption.textContent = item.language;
-
-    div.appendChild(iframe);
-    div.appendChild(caption);
-    grid.appendChild(div);
-  });
 
 
         // Navigation Toggle
