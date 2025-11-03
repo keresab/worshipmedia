@@ -4,203 +4,119 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="worship medialogo.jpg">
-<title>Who is Jesus?</title>
+<title id="pageTitle">Blog</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-/* ---------- Base Reset ---------- */
-* {margin:0; padding:0; box-sizing:border-box;}
-html, body {
-    width:100%; height:100%;
-    font-family:'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #1a1a1d, #2c2c34);
-    color:#f0f0f0;
-    line-height:1.8;
-    overflow-x:hidden;
-    scroll-behavior:smooth;
-}
-
-/* ---------- Container ---------- */
-.container {
-    max-width:900px;
-    margin:0 auto;
-    padding:80px 20px;
-    position:relative;
-    z-index:2;
-}
-
-/* ---------- Header ---------- */
-.header {text-align:center; margin-bottom:50px;}
-.header h1 {
-    font-size:3rem; font-weight:800;
-    background: linear-gradient(90deg, #00f260, #0575e6);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    transition: all 0.3s ease;
-}
-.header h1:hover { transform: scale(1.05); }
-.header p { font-size:1.2rem; color:#bbb; margin-top:10px; }
-
-/* ---------- Post Card ---------- */
-.post-card {
-    background: rgba(255,255,255,0.05);
-    border-radius:20px;
-    padding:60px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    opacity:0;
-    transform: translateY(50px);
-    z-index:2;
-}
-.post-card:hover{
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-}
-.post-card h2{
-    font-size:2.5rem;
-    font-weight:700;
-    margin-bottom:25px;
-    background: linear-gradient(90deg,#f7971e,#ffd200);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-.post-card p{ font-size:1.15rem; margin-bottom:25px; }
-
-/* ---------- Author Section ---------- */
-.author {
-    display:flex;
-    align-items:center;
-    margin-top:40px;
-    background: rgba(255,255,255,0.05);
-    padding:15px 20px;
-    border-radius:20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    gap:15px;
-}
-.author img { width:60px; height:60px; border-radius:50%; border:2px solid #ffd200; }
-.author-info p { font-size:1rem; margin:0; color:#fff; }
-.author-info span { font-size:0.85rem; color:#ccc; }
-
-/* ---------- Donate CTA ---------- */
-.cta { display:flex; justify-content:center; margin:50px 0; }
-.cta a {
-    display:inline-block;
-    text-align:center;
-    background: linear-gradient(90deg,#ffd200,#f7971e);
-    color:#1a1a1d;
-    text-decoration:none;
-    padding:20px 45px;
-    border-radius:60px;
-    font-weight:700;
-    font-size:1.2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.cta a:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow:0 20px 40px rgba(0,0,0,0.5);
-}
-
-/* ---------- Share Buttons ---------- */
-.share { display:flex; justify-content:center; margin:30px 0; gap:20px; }
-.share button, .share a {
-    display:flex; align-items:center; justify-content:center;
-    font-size:1.3rem; width:50px; height:50px;
-    border-radius:50%; border:none; cursor:pointer;
-    color:#fff; transition: all 0.3s ease;
-}
-.share button { background: linear-gradient(90deg,#00f260,#0575e6); }
-.share button:hover { transform: scale(1.1); box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
-.share a { background: linear-gradient(90deg,#ff4e50,#f9d423); text-decoration:none; }
-.share a:hover { transform: scale(1.1); box-shadow:0 10px 25px rgba(0,0,0,0.4); }
-
-/* ---------- Accent Shapes ---------- */
-.shape { position:absolute; width:200px; height:200px; border-radius:50%; opacity:0.2; background: linear-gradient(45deg, #ff4e50, #1fddff); filter: blur(60px); z-index:0; }
-.shape1 {top:50px; left:-100px;}
-.shape2 {bottom:50px; right:-100px;}
-.shape3 {top:200px; right:-150px;}
-
-/* ---------- Responsive ---------- */
-@media(max-width:768px){
-    .header h1{font-size:2rem;}
-    .post-card{padding:40px;}
-    .cta {flex-direction:column; gap:15px;}
-    .share {gap:15px;}
-}
-</style>
+<link rel="stylesheet" href="allblogs/style.css">
 </head>
 <body>
 
-<!-- Shapes -->
+<!-- Background Shapes -->
 <div class="shape shape1"></div>
 <div class="shape shape2"></div>
 <div class="shape shape3"></div>
 
 <div class="container">
 
-    <!-- Header -->
-    <div class="header">
-        <h1>How To Love God</h1>
-        <p>A timeless question. Explore the life, teachings, and meaning of Jesus Christ</p>
-    </div>
+  <!-- Header -->
+  <div class="header">
+    <h1 id="blogTitle"></h1>
+    <p id="blogSubtitle"></p>
+  </div>
 
-    <!-- Post -->
-    <div class="post-card">
-        <h2>The Life and Teachings of Jesus</h2>
-        <p>Jesus of Nazareth, also known as Jesus Christ, is the central figure of Christianity. Born over 2000 years ago, his teachings, life, and crucifixion have profoundly shaped human history.</p>
-        <p>Christians believe Jesus is the Son of God and the awaited Messiah prophesied in the Old Testament. His teachings emphasized love, compassion, forgiveness, and the importance of faith.</p>
-        <p>Parables and miracles recorded in the Gospels illustrate moral lessons and spiritual truths. Beyond religious texts, Jesus remains a significant historical figure, whose philosophy of love and humility has influenced cultures, ethics, art, and society worldwide.</p>
-        <p>Understanding Jesus’ life and message can inspire reflection on morality, purpose, and compassion in everyday life, transcending time and place.</p>
-    </div>
+  <!-- Blog Post -->
+  <div class="post-card" id="blogPost"></div>
 
-    <!-- Author -->
-    <div class="author">
-        <a href="index.html" target="_blank">
-          <img src="worship medialogo.jpg" alt="Author Photo">    
-        </a>
-
-        <div class="author-info">
-            <p>Written by <strong>Jeremy</strong></p>
-            <span>October 31, 2025</span>
-        </div>
+  <!-- Author -->
+  <div class="author">
+    <a href="index.html" target="_blank"><img id="authorImage" alt="Author"></a>
+    <div class="author-info">
+      <p id="authorName"></p>
+      <span id="postDate"></span>
     </div>
+  </div>
 
-    <!-- Donate CTA -->
-    <div class="cta">
-        <a href="https://www.paypal.com/paypalme/worshippermedia" target="_blank">Donate Now</a>
-    </div>
+  <!-- CTA -->
+  <div class="cta">
+    <a id="donateLink" href="#" target="_blank">Donate Now</a>
+  </div>
 
-    <!-- Share Buttons -->
-    <div class="share">
-        <button onclick="copyLink()" title="Copy Blog Link"><i class="fas fa-share-alt"></i></button>
-        <a href="https://facebook.com/VisualBible" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.youtube.com/@worshippermedia" title="Facebook" target="_blank"><i class="fab fa-youtube"></i></a>
-    </div>
+  <!-- Share -->
+  <div class="share">
+    <button onclick="copyLink()" title="Copy Blog Link"><i class="fas fa-share-alt"></i></button>
+    <a id="facebookLink" href="#" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a id="youtubeLink" href="#" title="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
 
 </div>
 
 <script>
-// ---------- Reveal Post Card ----------
-const post = document.querySelector('.post-card');
-window.addEventListener('scroll', revealPost);
-function revealPost(){
-    const trigger = window.innerHeight * 0.85;
-    const postTop = post.getBoundingClientRect().top;
-    if(postTop < trigger){
-        post.style.opacity='1';
-        post.style.transform='translateY(0)';
-        post.style.transition='all 1s ease';
-    }
-}
-revealPost(); 
+/* ---------- Blog Content Object ---------- */
+const blogData = {
+  pageTitle: "Who is Jesus?",
+  title: "How To Love God",
+  subtitle: "A timeless question. Explore the life, teachings, and meaning of Jesus Christ",
+  sections: [
+    "Jesus of Nazareth, also known as Jesus Christ, is the central figure of Christianity. Born over 2000 years ago, his teachings, life, and crucifixion have profoundly shaped human history.",
+    "Christians believe Jesus is the Son of God and the awaited Messiah prophesied in the Old Testament. His teachings emphasized love, compassion, forgiveness, and the importance of faith.",
+    "Parables and miracles recorded in the Gospels illustrate moral lessons and spiritual truths. Beyond religious texts, Jesus remains a significant historical figure, whose philosophy of love and humility has influenced cultures, ethics, art, and society worldwide.",
+    "Understanding Jesus’ life and message can inspire reflection on morality, purpose, and compassion in everyday life, transcending time and place."
+  ],
+  author: {
+    name: "Written by Jeremy",
+    date: "October 31, 2025",
+    image: "worship medialogo.jpg"
+  },
+  links: {
+    donate: "https://www.paypal.com/paypalme/worshippermedia",
+    facebook: "https://facebook.com/VisualBible",
+    youtube: "https://www.youtube.com/@worshippermedia"
+  }
+};
 
-// ---------- Copy Blog Link ----------
+/* ---------- Inject Content ---------- */
+document.title = blogData.pageTitle;
+document.getElementById("pageTitle").textContent = blogData.pageTitle;
+document.getElementById("blogTitle").textContent = blogData.title;
+document.getElementById("blogSubtitle").textContent = blogData.subtitle;
+
+// Create Post Sections
+const postContainer = document.getElementById("blogPost");
+const postTitle = document.createElement("h2");
+postTitle.textContent = "The Life and Teachings of Jesus";
+postContainer.appendChild(postTitle);
+blogData.sections.forEach(text => {
+  const p = document.createElement("p");
+  p.textContent = text;
+  postContainer.appendChild(p);
+});
+
+// Author
+document.getElementById("authorImage").src = blogData.author.image;
+document.getElementById("authorName").textContent = blogData.author.name;
+document.getElementById("postDate").textContent = blogData.author.date;
+
+// Links
+document.getElementById("donateLink").href = blogData.links.donate;
+document.getElementById("facebookLink").href = blogData.links.facebook;
+document.getElementById("youtubeLink").href = blogData.links.youtube;
+
+/* ---------- Animation & Copy ---------- */
+const post = document.querySelector('.post-card');
+window.addEventListener('scroll', () => {
+  const trigger = window.innerHeight * 0.85;
+  const postTop = post.getBoundingClientRect().top;
+  if (postTop < trigger) {
+    post.style.opacity = '1';
+    post.style.transform = 'translateY(0)';
+  }
+});
+
 function copyLink() {
-    navigator.clipboard.writeText(window.location.href)
-    .then(() => { alert("Blog link copied to clipboard!"); })
-    .catch(err => { alert("Failed to copy link"); });
+  navigator.clipboard.writeText(window.location.href)
+  .then(() => alert("Blog link copied!"))
+  .catch(() => alert("Failed to copy link"));
 }
 </script>
-
 </body>
 </html>
