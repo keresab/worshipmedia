@@ -386,7 +386,7 @@
             background: linear-gradient(to bottom, var(--color-background), var(--color-white));
         }
 
-        .video-grid {
+        .video-grid .video-grids {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
@@ -709,7 +709,7 @@
             .hero-content h1 { font-size: 3.5rem; }
             .hero-content p { font-size: 1.4rem; }
             .about-content { flex-direction: column; }
-            .video-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+            .video-grid .video-grids { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
             .language-list { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
         }
 
@@ -830,7 +830,7 @@
 
     <section id="fuwyl">
         <h2 class="animate-fade">Featured Playlists</h2>
-        <div class="video-grid">
+        <div class="video-grids">
             <div class="video-item animate-zoom" role="button" tabindex="0" onclick="showModal('Project 1: Gabrielle Version')" onkeypress="if(event.key === 'Enter') showModal('Project 1: Gabrielle Version')">
                 <iframe src="https://www.youtube.com/embed/0M_9DdkrWFU" title="Project 1: Gabrielle Playlist" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="video-caption">Project 1: Gabrielle</div>
