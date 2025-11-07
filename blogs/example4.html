@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="worship medialogo.jpg">
+<title id="pageTitle">Blog</title>
+<link rel="icon" type="image/png" href="../worship medialogo.jpg">
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Main CSS -->
+<link rel="stylesheet" href="all-blogs-style.css">
+</head>
+
+<body>
+
+<!-- Background Shapes -->
+<div class="shape shape1"></div>
+<div class="shape shape2"></div>
+<div class="shape shape3"></div>
+
+<div class="container">
+  <!-- Header -->
+  <div class="header">
+    <h1 id="blogTitle"></h1>
+    <p id="blogSubtitle"></p>
+  </div>
+
+  <!-- Blog Post -->
+  <div class="post-card" id="blogPost"></div>
+
+  <!-- Author -->
+  <div class="author">
+    <a href="index.html" target="_blank"><img id="authorImage" alt="Author"></a>
+    <div class="author-info">
+      <p id="authorName"></p>
+      <span id="postDate"></span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <a id="donateLink" href="#" target="_blank">Donate Now</a>
+  </div>
+
+  <!-- Share -->
+  <div class="share">
+    <button onclick="copyLink()" title="Copy Blog Link"><i class="fas fa-share-alt"></i></button>
+    <a id="facebookLink" href="#" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a id="youtubeLink" href="#" title="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+</div>
+
+<script>
+/* ---------- Blog Content Object ---------- */
+const blogData = {
+  pageTitle: "Who?",
+  title: "How",
+  subtitle: "teachings, and meaning of Jesus Christ",
+  sections: [
+    "Jesus of Nazareth, also known as Jesus Christ, is the central figure of Christianity. Born over 2000 years ago, his teachings, life, and crucifixion have profoundly shaped human history.",
+    "Christians believe Jesus is the Son of God and the awaited Messiah prophesied in the Old Testament. His teachings emphasized love, compassion, forgiveness, and the importance of faith.",
+    "lessons and spiritual truths. Beyond religious texts, Jesus remains a significant historical figure, whose philosophy of love and humility has influenced cultures, ethics, art, and society worldwide.",
+    "Understanding Jesus’ life and message can inspire reflection on morality, purpose, and compassion in everyday life, transcending time and place."
+  ],
+  author: {
+    name: "Written by Jeremy",
+    date: "nov 1, 2025",
+    image: "../worship medialogo.jpg"
+  },
+  links: {
+    donate: "https://www.paypal.com/paypalme/worshippermedia",
+    facebook: "https://facebook.com/VisualBible",
+    youtube: "https://www.youtube.com/@worshippermedia"
+  }
+};
+
+/* ---------- Inject Content ---------- */
+document.title = blogData.pageTitle;
+document.getElementById("pageTitle").textContent = blogData.pageTitle;
+document.getElementById("blogTitle").textContent = blogData.title;
+document.getElementById("blogSubtitle").textContent = blogData.subtitle;
+
+// Create Post Sections
+const postContainer = document.getElementById("blogPost");
+const postTitle = document.createElement("h2");
+postTitle.textContent = "The Life and Teachings of Jesus";
+postContainer.appendChild(postTitle);
+blogData.sections.forEach(text => {
+  const p = document.createElement("p");
+  p.textContent = text;
+  postContainer.appendChild(p);
+});
+
+// Author
+document.getElementById("authorImage").src = blogData.author.image;
+document.getElementById("authorName").textContent = blogData.author.name;
+document.getElementById("postDate").textContent = blogData.author.date;
+
+// Links
+document.getElementById("donateLink").href = blogData.links.donate;
+document.getElementById("facebookLink").href = blogData.links.facebook;
+document.getElementById("youtubeLink").href = blogData.links.youtube;
+
+/* ---------- Animation & Copy ---------- */
+const post = document.querySelector('.post-card');
+window.addEventListener('scroll', () => {
+  const trigger = window.innerHeight * 0.85;
+  const postTop = post.getBoundingClientRect().top;
+  if (postTop < trigger) {
+    post.style.opacity = '1';
+    post.style.transform = 'translateY(0)';
+  }
+});
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href)
+  .then(() => alert("Blog link copied!"))
+  .catch(() => alert("Failed to copy link"));
+}
+</script>
+</body>
+</html>
+
