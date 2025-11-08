@@ -1,0 +1,243 @@
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInLeft {
+        from { transform: translateX(-100px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideInRight {
+        from { transform: translateX(100px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    @keyframes zoomIn {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+    }
+
+    .animate-fade { animation: fadeIn 1.2s ease-out forwards; }
+    .animate-slide-left { animation: slideInLeft 1s ease-out forwards; }
+    .animate-slide-right { animation: slideInRight 1s ease-out forwards; }
+    .animate-pulse { animation: pulse 2s infinite ease-in-out; }
+    .animate-zoom { animation: zoomIn 1s ease-out forwards; }
+    .animate-float { animation: float 3s infinite ease-in-out; }
+
+    /* Navigation Bar */
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+        box-shadow: 0 2px 15px var(--color-shadow);
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+        background: var(--color-white);
+        padding: 10px 5%;
+    }
+
+    .nav-logo img {
+        max-width: 80px;
+        border-radius: 50px;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+
+    .nav-logo img:hover {
+        transform: scale(1.1);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+
+    .nav-links a {
+        color: var(--color-text);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.1rem;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: var(--color-accent);
+        transform: translateY(-2px);
+    }
+
+    /* Donate Button */
+:root {
+--color-white: #fff;
+}
+
+/* Donate Button Styling */
+.donate-button {
+position: relative;
+padding: 12px 30px;
+font-size: 1.1rem;
+font-weight: 700;
+color: var(--color-white);
+background: linear-gradient(45deg, #ff416c, #ff4b2b);
+border: none;
+border-radius: 50px;
+cursor: pointer;
+overflow: hidden;
+z-index: 1;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* subtle pulsing glow on button itself */
+animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* Pulsing glow animation */
+@keyframes pulseGlow {
+0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 65, 108, 0.4); }
+50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 65, 108, 0.6); }
+}
+
+/* Animated Gradient Border (appears only on hover) */
+.donate-button::before {
+content: "";
+position: absolute;
+inset: 0;
+padding: 3px; /* thickness of border */
+border-radius: 50px;
+background: linear-gradient(270deg,
+#ff416c,
+#ff4b2b,
+#ffdd00,
+#00c9ff,
+#6a00ff,
+#ff416c
+);
+background-size: 400% 400%;
+animation: borderFlow 6s linear infinite;
+-webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+z-index: -1;
+opacity: 0; /* hidden initially */
+transition: opacity 0.4s ease;
+}
+
+/* Show border on hover */
+.donate-button:hover::before {
+opacity: 1;
+animation-duration: 3s; /* faster on hover */
+}
+
+/* Button hover effect */
+.donate-button:hover {
+transform: scale(1.08);
+box-shadow: 0 0 30px rgba(255, 65, 108, 0.7);
+}
+
+/* Gradient movement for border */
+@keyframes borderFlow {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+
+@keyframes borderFlow {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+
+
+    .nav-toggle {
+        display: none;
+        font-size: 1.8rem;
+        color: var(--color-text);
+        cursor: pointer;
+    }
+
+    /* Mobile Menu */
+    .nav-mobile {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--color-white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .nav-mobile.active {
+        transform: translateX(0);
+    }
+
+    .nav-mobile a {
+        font-size: 1.5rem;
+        color: var(--color-text);
+        text-decoration: none;
+        margin: 20px 0;
+        transition: color 0.3s ease;
+    }
+
+    .nav-mobile a:hover {
+        color: var(--color-accent);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        .hero-content h1 { font-size: 3.5rem; }
+        .hero-content p { font-size: 1.4rem; }
+        .about-content { flex-direction: column; }
+        .video-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .language-list { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+    }
+
+    @media (max-width: 908px) {
+        nav { padding: 10px 5%; }
+        .nav-links { display: none; }
+        .nav-toggle { display: block; }
+        .nav-mobile { display: flex; }
+        .hero-content h1 { font-size: 2.5rem; }
+        .hero-content p { font-size: 1.2rem; }
+        .cta-button { padding: 14px 30px; font-size: 1.1rem; }
+        section { padding: 60px 5%; }
+        h2 { font-size: 2.5rem; }
+        .video-item iframe { height: 180px; }
+        .language-search input { width: 100%; }
+        .donate-button {
+font-size: 0.95rem;
+padding: 8px 18px;
+}
+}
+    @media (max-width: 480px) {
+        .hero-content h1 { font-size: 2rem; }
+        .hero-content p { font-size: 1rem; }
+        .nav-logo img { max-width: 100px; }
+        .impact-stats { grid-template-columns: 1fr; }
+        #backToTop { bottom: 20px; right: 20px; padding: 10px; }
+    }
