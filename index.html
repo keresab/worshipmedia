@@ -759,8 +759,9 @@
         </div>
         <div class="nav-links">
             <a href="#about" aria-label="About Section">About</a>
-            <a href="#featured" aria-label="Featured Translations">Featured</a>
+            <a href="#featured" aria-label="Featured Translations">Videos</a>
             <a href="#community" aria-label="Community Section">Community</a>
+            <a href="#fuwyl" aria-label="FUWYL">FUWYL</a>
         </div>
 
         <button class="donate-button" 
@@ -828,19 +829,29 @@
         </div>
     </section>
 
-    <section id="fuwyl">
-        <h2 class="animate-fade">Featured Playlists</h2>
-        <div class="video-grid">
-            <div class="video-item animate-zoom" role="button" tabindex="0" onclick="showModal('Project 1: Gabrielle Version')" onkeypress="if(event.key === 'Enter') showModal('Project 1: Gabrielle Version')">
-                <iframe src="https://www.youtube.com/embed/0M_9DdkrWFU" title="Project 1: Gabrielle Playlist" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <div class="video-caption">Project 1: Gabrielle</div>
-            </div>
-            <div class="video-item animate-zoom" role="button" tabindex="0" onclick="showModal('Project 2: A World In Pain Version')" onkeypress="if(event.key === 'Enter') showModal('Project 2: A World In Pain Version')">
-                <iframe src="https://www.youtube.com/embed/2EegjZsDfvc" title="Project 2: A World In Pain Playlist" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <div class="video-caption">Project 2: A World In Pain</div>
-        </div>
-    </section>
+    <!--fuwyl section-->
 
+    <section id="fuwyl">
+    <h2 class="animate-fade">FUWYL Videos</h2>
+    <div class="video-grid">
+
+        <div class="video-item animate-zoom" role="button" tabindex="0" onclick="showModal('Project 1: Gabrielle Version')" onkeypress="if(event.key === 'Enter') showModal('Project 1: Gabrielle Version')">
+            <iframe src="https://www.youtube.com/embed/0M_9DdkrWFU?si=kUS41DksD-Si8bQg" title=" " loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-caption">FUWYL 1</div>
+        </div>
+
+        <div class="video-item animate-zoom" role="button" tabindex="0" onclick="showModal('Project 1: Gabrielle Version')" onkeypress="if(event.key === 'Enter') showModal('Project 1: Gabrielle Version')">
+            <iframe src="https://www.youtube.com/embed/2EegjZsDfvc?si=QqhdssjvWZjkUF19" title=" " loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-caption">FUWYL 2</div>
+        </div>
+
+        <div class="video-item animate-zoom" role="button" tabindex="0" onclick="showModal('Project 1: Gabrielle Version')" onkeypress="if(event.key === 'Enter') showModal('Project 1: Gabrielle Version')">
+            <iframe src="https://www.youtube.com/embed/TZbJn0Fo2es?si=oXG-iIiXcs-ZUz5j" title=" " loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-caption">FUWYL 3</div>
+        </div>        
+
+    </div>
+</section>
 
     <!-- Featured Content Section -->
     <section id="featured">
@@ -935,7 +946,6 @@
     </div>
 </section>
 
-
     <!-- Community Section -->
     <section id="community">
         <h2 class="animate-fade">Community & Engagement</h2>
@@ -997,9 +1007,84 @@
             <button class="cta-button animate-pulse" onclick="subscribe()" aria-label="Subscribe to YouTube channel">Subscribe Now</button>
         </div>
     </div>
-
-    <!-- JavaScript -->
     <script>
+
+// --- Featured Section ---
+const translationsFeatured = [
+  { language: "Project 1: Gabrielle", url: "PLZ-Bkhyr_AmRAJCHuGJ5n1G-5k5qJ2cI-" },
+  { language: "Project 2: A World In Pain", url: "PLZ-Bkhyr_AmRZ_4edcdieHKNdmNu4NQ3J" },
+  { language: "Project 3: Bloodwashed", url: "PLZ-Bkhyr_AmQFsLmXNrPPeJ6hqexc8niN" },
+  { language: "Project 4: Polly Esther", url: "PLZ-Bkhyr_AmTp7QmJrgwbPWoZBQZbeXOd" },
+  { language: "Project 5: Bed of Roses", url: "PLZ-Bkhyr_AmS2Q9gsVbfdvay_MHXn7fp8" },
+  { language: "Project 6: Madness", url: "PLZ-Bkhyr_AmTM9VBgY8g772harg0d_zET" },
+  { language: "Project 7: A Touch of Heaven", url: "PLZ-Bkhyr_AmSHEvT5JLanNnLcGsAzp-LY" },
+  { language: "Project 8: The Path", url: "PLZ-Bkhyr_AmRfqomtP-JItoOK-IxSWWVl" }
+];
+
+/**
+const featuredGrid = document.querySelector("#featured .video-grid");
+featuredGrid.innerHTML = "";
+
+translationsFeatured.forEach(item => {
+  const embedUrl = `https://www.youtube.com/embed/videoseries?list=${item.url}&autoplay=0&enablejsapi=1`;
+  const div = document.createElement("div");
+  div.className = "video-item animate-zoom";
+  div.onclick = () => showModal(item.language);
+
+  const iframe = document.createElement("iframe");
+  iframe.src = embedUrl;
+  iframe.title = `${item.language} Playlist`;
+  iframe.loading = "lazy";
+  iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+  iframe.allowFullscreen = true;
+
+  const caption = document.createElement("div");
+  caption.className = "video-caption";
+  caption.textContent = item.language;
+
+  div.append(iframe, caption);
+  featuredGrid.appendChild(div);
+});
+
+
+// --- Fill Us With Your Love Section (FUWYL) ---
+const translationsFUWYL = [
+  { language: "Fishers of Men", url: "PLZ-Bkhyr_AmTGUprtW7BZvXPK2Ri3ji2w" },
+  { language: "Worshipper Music", url: "PLZ-Bkhyr_AmRUhAnZEmDbHqEpdEFYqtQ5" },
+  { language: "Commissioned Work", url: "PLZ-Bkhyr_AmQO0xQIKyX9fFjRVhNDElGH" },
+  { language: "Where Is God", url: "PLZ-Bkhyr_AmQMukDG9-XaE9uRLQHKpaqg" },
+  { language: "Unconditional Love of God", url: "PLZ-Bkhyr_AmTwDs-qg3PJeKaR3peL5xFF" },
+  { language: "Why We Don’t Bless", url: "PLZ-Bkhyr_AmRlI_E2_BmzCBbc1MG9mWlK" },
+  { language: "The Colt", url: "PLZ-Bkhyr_AmT1w1BaPPCvXY01-goubimr" },
+  { language: "Narrated", url: "PLZ-Bkhyr_AmS9bm07k8sYOoU7Bo9LYMt8" }
+];
+
+const fuwylGrid = document.querySelector("#FUWYL .video-grid");
+fuwylGrid.innerHTML = "";
+
+translationsFUWYL.forEach(item => {
+  const embedUrl = `https://www.youtube.com/embed/videoseries?list=${item.url}&autoplay=0&enablejsapi=1`;
+  const div = document.createElement("div");
+  div.className = "video-item animate-zoom";
+  div.onclick = () => showModal(item.language);
+
+  const iframe = document.createElement("iframe");
+  iframe.src = embedUrl;
+  iframe.title = `${item.language} Playlist`;
+  iframe.loading = "lazy";
+  iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+  iframe.allowFullscreen = true;
+
+  const caption = document.createElement("div");
+  caption.className = "video-caption";
+  caption.textContent = item.language;
+
+  div.append(iframe, caption);
+  fuwylGrid.appendChild(div);
+});
+**/
+
+
 
         // Navigation Toggle
             const navToggle = document.querySelector('.nav-toggle');
