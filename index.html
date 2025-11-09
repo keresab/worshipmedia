@@ -76,6 +76,22 @@
         color: var(--color-accent);
     }
 
+    header video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        filter: brightness(0.6);
+        background-image: url('background-image.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
     /* Responsive Design */
     @media (max-width: 1024px) {
         .hero-content h1 { font-size: 3.5rem; }
